@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "872391661344",
+    "firebase_url": "https://cgpa-calculator-9c3d5.firebaseio.com",
+    "project_id": "cgpa-calculator-9c3d5",
+    "storage_bucket": "cgpa-calculator-9c3d5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:872391661344:android:97c1f3f6f0ef39f48a6945",
+        "android_client_info": {
+          "package_name": "com.zealtech.learning"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "872391661344-4amd7n21cr0hf5bgjsogqp9mkpsvt9gm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.zealtech.learning",
+            "certificate_hash": "91f2b9694e16dfe40c889382c0a37b8a3c71a6a8"
+          }
+        },
+        {
+          "client_id": "872391661344-fs7f39i2504naonpgughv0p9aiqboh6f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQVkevo0gQ3OT40cqqGtlYpKl7FIvtC9U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "872391661344-fs7f39i2504naonpgughv0p9aiqboh6f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

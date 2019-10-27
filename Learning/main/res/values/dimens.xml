@@ -1,0 +1,5 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <integer name="long_duration">1000</integer>
+    <integer name="short_duration">300</integer>
+</resources>
