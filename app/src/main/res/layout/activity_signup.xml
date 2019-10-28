@@ -115,11 +115,11 @@
                 android:layout_marginBottom="10dp"
                 android:background="#ADCCE2"/>
             <customfonts.MyTextView
-                android:id="@+id/sin"
+                android:id="@+id/sinUp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/angle"
-                android:text="Create"
+                android:text="Sign Up"
                 android:textSize="16dp"
                 android:textColor="#fff"
                 android:gravity="center"

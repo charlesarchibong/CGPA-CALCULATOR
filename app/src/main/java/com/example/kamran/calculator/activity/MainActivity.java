@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        circle = findViewById(R.id.signupBtn);
+        circle = findViewById(R.id.signup);
         sin = findViewById(R.id.sin);
 
         circle.setOnClickListener(new View.OnClickListener() {

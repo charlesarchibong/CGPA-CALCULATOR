@@ -39,7 +39,7 @@
             android:paddingBottom="16dp"
             />
         <LinearLayout
-            android:id="@+id/signupBtn"
+            android:id="@+id/signup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/circleangle"

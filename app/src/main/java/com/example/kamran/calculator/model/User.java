@@ -15,7 +15,7 @@ public class User
     public static final String FOURTH_YEAR = "400 Level";
     public static final String FIFTH_YEAR = "500 Level";
     public static final String GRADUATE = "Graduated";
-    
+
     public User()
     {
     }
