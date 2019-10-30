@@ -4,4 +4,9 @@
     <color name="colorPrimaryDark">#095794</color>
     <color name="colorAccent">#1C56E6</color>
     <color name="white_color">#FFFF</color>
+    <color name="colorSlide_1">#009688</color>
+    <color name="colorSlide_2">#795548</color>
+    <color name="colorSlide_3">#8BC34A</color>
+    <color name="active_dot">#fffafa</color>
+    <color name="inactive_dot">#82878b</color>
 </resources>

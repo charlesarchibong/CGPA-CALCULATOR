@@ -4,22 +4,23 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/img"
-    tools:context=".activity.MainActivity">
+    tools:context="com.zealtech.learning.activity.MainActivity">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/background">
+
         <customfonts.MyTextView
             android:id="@+id/sin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Sign In"
-            android:textSize="25dp"
-            android:textColor="#54abee"
-            android:gravity="center"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="45dp"
-            />
+            android:layout_marginBottom="125dp"
+            android:background="@drawable/custom_ripple"
+            android:gravity="center"
+            android:text="Sign In"
+            android:textColor="#54abee"
+            android:textSize="25dp" />
         <TextView
             android:background="@drawable/immaclogo"
             android:id="@+id/imac"
@@ -27,23 +28,25 @@
             android:layout_height="30dp"
             android:layout_centerInParent="true"
             />
+
         <customfonts.MyTextView
             android:id="@+id/account"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Already have an account?"
-            android:textSize="16dp"
-            android:textColor="#c4c5c9"
-            android:gravity="center"
             android:layout_above="@id/sin"
+            android:layout_marginBottom="-14dp"
+            android:gravity="center"
             android:paddingBottom="16dp"
-            />
+            android:text="Already have an account?"
+            android:textColor="#c4c5c9"
+            android:textSize="16dp" />
         <LinearLayout
             android:id="@+id/signup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/circleangle"
             android:padding="16dp"
+            android:foreground="@drawable/custom_ripple"
             android:orientation="horizontal"
             android:layout_marginTop="140dp"
             >

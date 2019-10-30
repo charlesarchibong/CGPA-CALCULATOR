@@ -1,4 +1,4 @@
-package com.example.kamran.calculator.activity;
+package com.zealtech.learning.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,12 +6,16 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.kamran.calculator.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -25,23 +29,15 @@ public class SignupActivity extends AppCompatActivity
     private FirebaseAuth firebaseAuth;
     private EditText fname, mail, username, password;
     private TextView sinUp;
-<<<<<<< HEAD
-<<<<<<< HEAD
     private ProgressBar progressBar;
-
-=======
->>>>>>> parent of 92dd871... UserDAO class addded
-=======
->>>>>>> parent of 92dd871... UserDAO class addded
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         setContentView(R.layout.activity_signup);
         firebaseAuth = FirebaseAuth.getInstance();
         sback = findViewById(R.id.sback);
-        sback.setOnClickListener(new View.OnClickListener()
-        {
+        sback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
             {
@@ -54,17 +50,17 @@ public class SignupActivity extends AppCompatActivity
         mail = findViewById(R.id.mail);
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
+        progressBar = findViewById(R.id.progressBar);
         sinUp = findViewById(R.id.sinUp);
         sinUp.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                signUpUser();
+               signUpUser();
             }
         });
     }
-
     public void signUpUser()
     {
         boolean error = true;
@@ -77,7 +73,7 @@ public class SignupActivity extends AppCompatActivity
             Toast.makeText(SignupActivity.this, "Full Name can not be empty", Toast.LENGTH_LONG)
                     .show();
             error = false;
-        } else if (TextUtils.isEmpty(email))
+        }else if (TextUtils.isEmpty(email))
         {
             Toast.makeText(SignupActivity.this, "Email can not be empty", Toast.LENGTH_LONG)
                     .show();
@@ -104,9 +100,11 @@ public class SignupActivity extends AppCompatActivity
             error = false;
         }
 
-        if (error)
+        if(error)
         {
-
+            progressBar.setVisibility(View.VISIBLE);
+            sinUp.setEnabled(false);
+            sinUp.setText("Please wait....");
             firebaseAuth.createUserWithEmailAndPassword(email, passWord)
                     .addOnCompleteListener(SignupActivity.this, new OnCompleteListener<AuthResult>()
                     {
@@ -115,9 +113,15 @@ public class SignupActivity extends AppCompatActivity
                         {
                             if (task.isSuccessful())
                             {
+                                progressBar.setVisibility(View.GONE);
+                                sinUp.setText("Success!");
                                 Toast.makeText(SignupActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
-                            } else
+                            }
+                            else
                             {
+                                progressBar.setVisibility(View.GONE);
+                                sinUp.setText("Sign Up");
+                                sinUp.setEnabled(true);
                                 Toast.makeText(SignupActivity.this, task.getException().getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                             }
                         }
@@ -127,12 +131,16 @@ public class SignupActivity extends AppCompatActivity
                         @Override
                         public void onFailure(@NonNull Exception e)
                         {
+                            progressBar.setVisibility(View.GONE);
+                            sinUp.setText("Sign Up");
+                            sinUp.setEnabled(true);
                             Log.i(SignupActivity.class.getName(), e.getLocalizedMessage());
                             Toast.makeText(SignupActivity.this, e.getLocalizedMessage(), Toast.LENGTH_LONG);
                         }
                     });
         }
     }
+
 
     @Override
     protected void onResume()

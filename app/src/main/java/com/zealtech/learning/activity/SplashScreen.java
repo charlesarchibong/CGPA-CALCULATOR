@@ -1,4 +1,4 @@
-package com.example.kamran.calculator.activity;
+package com.zealtech.learning.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +15,7 @@ public class SplashScreen extends AppCompatActivity
     protected void onCreate(Bundle bundle)
     {
         super.onCreate(bundle);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         setContentView(R.layout.splash_screen);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         new Handler().postDelayed(new Runnable()
@@ -22,7 +23,7 @@ public class SplashScreen extends AppCompatActivity
             @Override
             public void run()
             {
-                Intent intent = new Intent(SplashScreen.this, MainActivity.class);
+                Intent intent = new Intent(SplashScreen.this, WelcomeActivity.class);
                 startActivity(intent);
                 finish();
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);

@@ -1,4 +1,4 @@
-package com.example.kamran.calculator.model;
+package com.zealtech.learning.model;
 
 public class User
 {
