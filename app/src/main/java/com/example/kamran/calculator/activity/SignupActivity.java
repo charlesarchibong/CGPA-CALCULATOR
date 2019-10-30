@@ -11,10 +11,8 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.kamran.calculator.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -29,13 +27,16 @@ public class SignupActivity extends AppCompatActivity
     private EditText fname, mail, username, password;
     private TextView sinUp;
     private ProgressBar progressBar;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
         firebaseAuth = FirebaseAuth.getInstance();
         sback = findViewById(R.id.sback);
-        sback.setOnClickListener(new View.OnClickListener() {
+        sback.setOnClickListener(new View.OnClickListener()
+        {
             @Override
             public void onClick(View v)
             {
@@ -55,10 +56,11 @@ public class SignupActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-               signUpUser();
+                signUpUser();
             }
         });
     }
+
     public void signUpUser()
     {
         boolean error = true;
@@ -71,7 +73,7 @@ public class SignupActivity extends AppCompatActivity
             Toast.makeText(SignupActivity.this, "Full Name can not be empty", Toast.LENGTH_LONG)
                     .show();
             error = false;
-        }else if (TextUtils.isEmpty(email))
+        } else if (TextUtils.isEmpty(email))
         {
             Toast.makeText(SignupActivity.this, "Email can not be empty", Toast.LENGTH_LONG)
                     .show();
@@ -98,7 +100,7 @@ public class SignupActivity extends AppCompatActivity
             error = false;
         }
 
-        if(error)
+        if (error)
         {
             sinUp.setEnabled(false);
             sinUp.setText("Please wait....");
@@ -115,8 +117,7 @@ public class SignupActivity extends AppCompatActivity
                                 progressBar.setVisibility(View.GONE);
                                 sinUp.setText("Success!");
                                 Toast.makeText(SignupActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
-                            }
-                            else
+                            } else
                             {
                                 progressBar.setVisibility(View.GONE);
                                 sinUp.setEnabled(true);
@@ -140,7 +141,6 @@ public class SignupActivity extends AppCompatActivity
                     });
         }
     }
-
 
     @Override
     protected void onResume()
