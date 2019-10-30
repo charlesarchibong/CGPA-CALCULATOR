@@ -8,7 +8,6 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
@@ -26,8 +25,11 @@ public class SignupActivity extends AppCompatActivity
     private FirebaseAuth firebaseAuth;
     private EditText fname, mail, username, password;
     private TextView sinUp;
+<<<<<<< HEAD
     private ProgressBar progressBar;
 
+=======
+>>>>>>> parent of 92dd871... UserDAO class addded
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -49,7 +51,6 @@ public class SignupActivity extends AppCompatActivity
         mail = findViewById(R.id.mail);
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
-        progressBar = findViewById(R.id.progressBar);
         sinUp = findViewById(R.id.sinUp);
         sinUp.setOnClickListener(new View.OnClickListener()
         {
@@ -102,10 +103,7 @@ public class SignupActivity extends AppCompatActivity
 
         if (error)
         {
-            sinUp.setEnabled(false);
-            sinUp.setText("Please wait....");
-//            progressBar.se
-            progressBar.setVisibility(View.VISIBLE);
+
             firebaseAuth.createUserWithEmailAndPassword(email, passWord)
                     .addOnCompleteListener(SignupActivity.this, new OnCompleteListener<AuthResult>()
                     {
@@ -114,14 +112,9 @@ public class SignupActivity extends AppCompatActivity
                         {
                             if (task.isSuccessful())
                             {
-                                progressBar.setVisibility(View.GONE);
-                                sinUp.setText("Success!");
                                 Toast.makeText(SignupActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
                             } else
                             {
-                                progressBar.setVisibility(View.GONE);
-                                sinUp.setEnabled(true);
-                                sinUp.setText("Sign Up");
                                 Toast.makeText(SignupActivity.this, task.getException().getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                             }
                         }
@@ -131,11 +124,7 @@ public class SignupActivity extends AppCompatActivity
                         @Override
                         public void onFailure(@NonNull Exception e)
                         {
-
-                            progressBar.setVisibility(View.GONE);
                             Log.i(SignupActivity.class.getName(), e.getLocalizedMessage());
-                            sinUp.setEnabled(true);
-                            sinUp.setText("Sign Up");
                             Toast.makeText(SignupActivity.this, e.getLocalizedMessage(), Toast.LENGTH_LONG);
                         }
                     });
