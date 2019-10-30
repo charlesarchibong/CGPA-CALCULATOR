@@ -26,8 +26,11 @@ public class SignupActivity extends AppCompatActivity
     private EditText fname, mail, username, password;
     private TextView sinUp;
 <<<<<<< HEAD
+<<<<<<< HEAD
     private ProgressBar progressBar;
 
+=======
+>>>>>>> parent of 92dd871... UserDAO class addded
 =======
 >>>>>>> parent of 92dd871... UserDAO class addded
     @Override
