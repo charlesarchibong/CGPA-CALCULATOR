@@ -1,22 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.kamran.calculator">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.SplashScreen">
+        <activity android:name="com.zealtech.learning.activity.ForgetPassword"></activity>
+        <activity android:name="com.zealtech.learning.activity.WelcomeActivity" />
+        <activity android:name="com.zealtech.learning.activity.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.kamran.calculator.activity.SigninActivity" />
-        <activity android:name="com.example.kamran.calculator.activity.SignupActivity"></activity>
-        <activity android:name="com.example.kamran.calculator.activity.MainActivity"></activity>
+        <activity android:name="com.zealtech.learning.activity.SigninActivity" />
+        <activity android:name="com.zealtech.learning.activity.SignupActivity" />
+        <activity android:name="com.zealtech.learning.activity.MainActivity" />
     </application>
 
 </manifest>
