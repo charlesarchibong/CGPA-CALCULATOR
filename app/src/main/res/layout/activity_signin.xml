@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/img"
     tools:context="com.zealtech.learning.activity.SigninActivity">
     <RelativeLayout
@@ -31,51 +32,88 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_alignParentBottom="true">
-            <customfonts.MyEditText
-                android:id="@+id/username"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
+                android:id="@+id/emailLoginLayout"
                 android:layout_height="wrap_content"
-                android:hint="Username"
-                android:layout_marginTop="20dp"
-                android:textSize="16dp"
                 android:textColorHint="#ADCCE2"
-                android:textColor="#ADCCE2"
+                app:hintTextAppearance="@style/EdittestStyle"
+                android:layout_marginRight="35dp"
                 android:layout_marginLeft="22dp"
-                android:inputType="text"
-                android:background="#0000"
-                android:padding="16dp"
-                android:drawableRight="@drawable/user"
-                android:layout_marginRight="35dp"/>
-            <View
-                android:layout_width="match_parent"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="40dp"
-                android:layout_height="1dp"
-                android:background="#ADCCE2" />
-            <customfonts.MyEditText
-                android:id="@+id/password"
-                android:textSize="16dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Password"
-                android:textColorHint="#ADCCE2"
-                android:layout_marginLeft="22dp"
-                android:inputType="textPassword"
-                android:textColor="#ADCCE2"
-                android:maxLength="12"
-                android:background="#0000"
-                android:padding="16dp"
-                android:drawableRight="@drawable/pasword"
-                android:layout_marginRight="35dp"/>
+                >
+                <customfonts.MyEditText
+                    android:id="@+id/loginEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Email"
+                    android:textCursorDrawable="@null"
+                    android:textColorHighlight="@color/white_color"
+                    android:layout_marginTop="20dp"
+                    android:textSize="16dp"
+                    android:textColorHint="#ADCCE2"
+                    android:textColor="#ADCCE2"
+                    android:inputType="text"
+                    android:background="#0000"
+                    android:padding="16dp"
+                    android:drawableRight="@drawable/user"/>
+            </com.google.android.material.textfield.TextInputLayout>
             <View
                 android:layout_width="match_parent"
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="40dp"
                 android:layout_height="1dp"
                 android:layout_marginBottom="10dp"
+                android:layout_marginTop="3dp"
+                android:background="#ADCCE2" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/passwordLoginLayout"
+                android:textColorHint="#ADCCE2"
+                app:hintTextAppearance="@style/EdittestStyle"
+                android:layout_marginRight="35dp"
+                android:layout_marginLeft="22dp">
+                <customfonts.MyEditText
+                    android:id="@+id/loginPassword"
+                    android:textSize="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Password"
+                    android:textCursorDrawable="@null"
+                    android:theme="@style/EdittestStyle"
+                    android:textColorHighlight="@color/white_color"
+                    android:textColorHint="#ADCCE2"
+                    android:inputType="textPassword"
+                    android:textColor="#ADCCE2"
+                    android:background="#0000"
+                    android:padding="16dp"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_height="1dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="3dp"
                 android:background="#ADCCE2"/>
+
             <customfonts.MyTextView
-                android:id="@+id/sin"
+                android:id="@+id/forgetAcct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="40dp"
+                android:foreground="@drawable/custom_ripple"
+                android:gravity="right"
+                android:padding="1dp"
+                android:text="Forgot password?"
+                android:textColor="#FF9800"
+                android:textSize="16dp"/>
+
+            <customfonts.MyTextView
+                android:id="@+id/loginBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/angle"
@@ -88,42 +126,34 @@
                 android:layout_marginRight="40dp"
                 android:padding="16dp"
                 android:layout_alignParentBottom="true"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginBottom="25dp"
+                android:layout_marginTop="3dp"
                 />
 
-            <customfonts.MyTextView
-                android:id="@+id/sin2"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_alignParentBottom="true"
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="3dp"
-                android:foreground="@drawable/custom_ripple"
-                android:layout_marginRight="40dp"
-                android:background="@drawable/shadow"
-                android:gravity="center"
-                android:padding="1dp"
-                android:text="Continue with facebook"
-                android:drawableLeft="@drawable/fb"
-                android:textColor="#fff"
-                android:textSize="16dp" />
-            <customfonts.MyTextView
-                android:id="@+id/forgetAcct"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_alignParentBottom="true"
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="20dp"
-                android:foreground="@drawable/custom_ripple"
-                android:layout_marginRight="40dp"
-                android:layout_marginBottom="38dp"
-                android:background="@drawable/rounder_btn_red"
-                android:gravity="center"
-                android:padding="1dp"
-                android:text="Forget password? Reset"
-                android:textColor="#fff"
-                android:textSize="16dp" />
+            <!--<customfonts.MyTextView-->
+                <!--android:id="@+id/sin2"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="60dp"-->
+                <!--android:layout_alignParentBottom="true"-->
+                <!--android:layout_marginLeft="40dp"-->
+                <!--android:layout_marginTop="3dp"-->
+                <!--android:foreground="@drawable/custom_ripple"-->
+                <!--android:layout_marginRight="40dp"-->
+                <!--android:layout_marginBottom="40dp"-->
+                <!--android:background="@drawable/shadow"-->
+                <!--android:gravity="center"-->
+                <!--android:padding="1dp"-->
+                <!--android:text="Continue with facebook"-->
+                <!--android:drawableLeft="@drawable/fb"-->
+                <!--android:textColor="#fff"-->
+                <!--android:textSize="16dp" />-->
+            <ProgressBar
+                android:id="@+id/loginProgressBar"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center|bottom"
+                android:layout_marginBottom="20dp"
+                android:visibility="gone" />
         </LinearLayout>
     </RelativeLayout>
 </FrameLayout>

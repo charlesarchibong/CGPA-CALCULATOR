@@ -12,14 +12,22 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.kamran.calculator.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
     TextView sin;
     LinearLayout circle;
+    private FirebaseAuth firebaseAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        firebaseAuth = FirebaseAuth.getInstance();
+        if(firebaseAuth.getCurrentUser() != null)
+        {
+            startActivity(new Intent(this, DashboardHome.class));
+            finish();
+        }
         setContentView(R.layout.activity_main);
         circle = findViewById(R.id.signup);
         sin = findViewById(R.id.sin);

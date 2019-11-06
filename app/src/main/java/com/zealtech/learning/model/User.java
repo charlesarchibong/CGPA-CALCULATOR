@@ -1,43 +1,29 @@
+/*
+ * Copyright (c) 2019 , Zealnetworks Technologies. All rights reserved. DO NOT ALTER OR REMOVE
+ * COPYRIGHT NOTICES OR THIS FILE HEADER. You are not meant to edit or modify this source code unless you are
+ * authorized to do so.  Please contact me at contact@zealtech.com.ng or visit www.zealtech.com.ng if you need
+ * additional information or have any questions.
+ */
+
 package com.zealtech.learning.model;
 
 public class User
 {
-    private String email;
-    private String username;
+    private String uid;
     private String fullName;
     private String school;
     private String department;
     private String level;
+    private String email;
 
-    public static final String FIRST_YEAR = "100 Level";
-    public static final String SECOND_YEAR = "200 Level";
-    public static final String THIRD_YEAR = "300 Level";
-    public static final String FOURTH_YEAR = "400 Level";
-    public static final String FIFTH_YEAR = "500 Level";
-    public static final String GRADUATE = "Graduated";
-
-    public User()
+    public String getUid()
     {
+        return uid;
     }
 
-    public String getEmail()
+    public void setUid(String uid)
     {
-        return email;
-    }
-
-    public void setEmail(String email)
-    {
-        this.email = email;
-    }
-
-    public String getUsername()
-    {
-        return username;
-    }
-
-    public void setUsername(String username)
-    {
-        this.username = username;
+        this.uid = uid;
     }
 
     public String getFullName()
@@ -78,5 +64,15 @@ public class User
     public void setLevel(String level)
     {
         this.level = level;
+    }
+
+    public String getEmail()
+    {
+        return email;
+    }
+
+    public void setEmail(String email)
+    {
+        this.email = email;
     }
 }

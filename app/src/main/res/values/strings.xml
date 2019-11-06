@@ -4,4 +4,15 @@
     <style name="my_preference_string">com.zealtech.learning.MyPref</style>
 
     <style name="my_preference_key">com.zealtech.learning.MyPrefKey</style>
+
+    <string name="title_activity_dashboard">Dashboard</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_register_course">Course</string>
+    <string name="title_record_cgpa">Grade</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_activity_dashboard_home">Home</string>
+    <string name="facebook_app_id">603347740200946</string>
+    <string name="sign_up">Signing up... Please wait!</string>
 </resources>

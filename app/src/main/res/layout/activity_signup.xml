@@ -53,10 +53,10 @@
                 android:background="#ADCCE2" />
             <customfonts.MyEditText
                 android:textSize="16dp"
-                android:id="@+id/mail"
+                android:id="@+id/schoolName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Email"
+                android:hint="School"
                 android:textColorHint="#ADCCE2"
                 android:textColor="#ADCCE2"
                 android:layout_marginLeft="22dp"
@@ -72,10 +72,48 @@
                 android:background="#ADCCE2" />
             <customfonts.MyEditText
                 android:textSize="16dp"
-                android:id="@+id/username"
+                android:id="@+id/department"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Username"
+                android:hint="Department"
+                android:textColorHint="#ADCCE2"
+                android:textColor="#ADCCE2"
+                android:layout_marginLeft="22dp"
+                android:inputType="text"
+                android:background="#0000"
+                android:padding="16dp"
+                android:layout_marginRight="35dp"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_height="1dp"
+                android:background="#ADCCE2" />
+            <customfonts.MyEditText
+                android:textSize="16dp"
+                android:id="@+id/levelEdu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Level"
+                android:textColorHint="#ADCCE2"
+                android:textColor="#ADCCE2"
+                android:layout_marginLeft="22dp"
+                android:inputType="text"
+                android:background="#0000"
+                android:padding="16dp"
+                android:layout_marginRight="35dp"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_height="1dp"
+                android:background="#ADCCE2" />
+            <customfonts.MyEditText
+                android:textSize="16dp"
+                android:id="@+id/mail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email"
                 android:textColorHint="#ADCCE2"
                 android:textColor="#ADCCE2"
                 android:layout_marginLeft="22dp"
@@ -98,7 +136,6 @@
                 android:textColorHint="#ADCCE2"
                 android:layout_marginLeft="22dp"
                 android:inputType="textPassword"
-                android:maxLength="12"
                 android:textColor="#ADCCE2"
                 android:background="#0000"
                 android:padding="16dp"
@@ -108,6 +145,7 @@
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="40dp"
                 android:layout_height="1dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginBottom="10dp"
                 android:background="#ADCCE2"/>
             <customfonts.MyTextView

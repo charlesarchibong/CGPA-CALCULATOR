@@ -17,7 +17,7 @@ import com.zealtech.learning.util.PagerAdapter;
 import com.example.kamran.calculator.R;
 import com.zealtech.learning.util.PreferanceManager;
 
-public class WelcomeActivity extends AppCompatActivity
+public class OnBoarddingScreens extends AppCompatActivity
 {
     private ViewPager viewPager;
     private int [] slides = {R.layout.first_slide, R.layout.second_slide, R.layout.third_slide};

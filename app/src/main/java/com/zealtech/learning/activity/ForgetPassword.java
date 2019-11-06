@@ -2,6 +2,7 @@ package com.zealtech.learning.activity;
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
@@ -18,6 +19,7 @@ import com.example.kamran.calculator.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.zealtech.learning.util.AppUtil;
 
 public class ForgetPassword extends AppCompatActivity
 {
@@ -38,6 +40,7 @@ public class ForgetPassword extends AppCompatActivity
         progressBar = findViewById(R.id.forgetPasswordBar);
         moveUp = findViewById(R.id.moveUp);
         firebaseAuth = FirebaseAuth.getInstance();
+        final AlertDialog dialog = AppUtil.getAlertView(this);
         moveUp.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -55,7 +58,7 @@ public class ForgetPassword extends AppCompatActivity
                 forgetBtn.setEnabled(false);
                 forgetBtn.setText("Resetting...");
                 String email = emailForget.getText().toString().trim();
-                if(TextUtils.isEmpty(email))
+                if(TextUtils.isEmpty(email) || !Patterns.EMAIL_ADDRESS.matcher(email).matches())
                 {
                     status = false;
                     forgetBtn.setEnabled(true);
@@ -65,7 +68,7 @@ public class ForgetPassword extends AppCompatActivity
                 }
                 if(status)
                 {
-                    progressBar.setVisibility(View.VISIBLE);
+                    dialog.show();
                     firebaseAuth.sendPasswordResetEmail(email)
                             .addOnCompleteListener(ForgetPassword.this, new OnCompleteListener<Void>()
                             {
@@ -76,7 +79,7 @@ public class ForgetPassword extends AppCompatActivity
                                     {
                                         forgetBtn.setEnabled(false);
                                         forgetBtn.setText("Done!");
-                                        progressBar.setVisibility(View.GONE);
+                                        dialog.dismiss();
                                         new AlertDialog.Builder(ForgetPassword.this)
                                                 .setTitle("Success!")
                                                 .setMessage("We have sent a password reset email, check your inbox for instructions.")
@@ -87,7 +90,7 @@ public class ForgetPassword extends AppCompatActivity
 
                                         forgetBtn.setEnabled(true);
                                         forgetBtn.setText("Reset Password");
-                                        progressBar.setVisibility(View.GONE);
+                                        dialog.dismiss();
                                         new AlertDialog.Builder(ForgetPassword.this)
                                                 .setTitle("Error!")
                                                 .setMessage(task.getException().getLocalizedMessage())
