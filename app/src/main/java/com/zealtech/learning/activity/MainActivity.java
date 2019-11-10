@@ -13,6 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.kamran.calculator.R;
 import com.google.firebase.auth.FirebaseAuth;
+import com.zealtech.learning.model.User;
+import com.zealtech.learning.util.Constants;
 
 public class MainActivity extends AppCompatActivity {
     TextView sin;
@@ -25,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         if(firebaseAuth.getCurrentUser() != null)
         {
+            User.currentAppUser = Constants.userDatabase.getUserDAO().getUserByUid(firebaseAuth.getCurrentUser().getUid());
             startActivity(new Intent(this, DashboardHome.class));
             finish();
         }

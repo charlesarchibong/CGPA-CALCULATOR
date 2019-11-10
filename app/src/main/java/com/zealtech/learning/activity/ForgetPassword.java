@@ -68,37 +68,43 @@ public class ForgetPassword extends AppCompatActivity
                 }
                 if(status)
                 {
-                    dialog.show();
-                    firebaseAuth.sendPasswordResetEmail(email)
-                            .addOnCompleteListener(ForgetPassword.this, new OnCompleteListener<Void>()
-                            {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task)
+                    if (!AppUtil.isConnected(getApplicationContext()))
+                    {
+                        Toast.makeText(v.getContext(), "Please Connected to the internet", Toast.LENGTH_LONG).show();
+                    } else
+                    {
+                        dialog.show();
+                        firebaseAuth.sendPasswordResetEmail(email)
+                                .addOnCompleteListener(ForgetPassword.this, new OnCompleteListener<Void>()
                                 {
-                                    if (task.isSuccessful())
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task)
                                     {
-                                        forgetBtn.setEnabled(false);
-                                        forgetBtn.setText("Done!");
-                                        dialog.dismiss();
-                                        new AlertDialog.Builder(ForgetPassword.this)
-                                                .setTitle("Success!")
-                                                .setMessage("We have sent a password reset email, check your inbox for instructions.")
-                                                .setIcon(R.drawable.logo)
-                                                .show();
-                                    } else
-                                    {
+                                        if (task.isSuccessful())
+                                        {
+                                            forgetBtn.setEnabled(false);
+                                            forgetBtn.setText("Done!");
+                                            dialog.dismiss();
+                                            new AlertDialog.Builder(ForgetPassword.this)
+                                                    .setTitle("Success!")
+                                                    .setMessage("We have sent a password reset email, check your inbox for instructions.")
+                                                    .setIcon(R.drawable.logo)
+                                                    .show();
+                                        } else
+                                        {
 
-                                        forgetBtn.setEnabled(true);
-                                        forgetBtn.setText("Reset Password");
-                                        dialog.dismiss();
-                                        new AlertDialog.Builder(ForgetPassword.this)
-                                                .setTitle("Error!")
-                                                .setMessage(task.getException().getLocalizedMessage())
-                                                .setIcon(R.drawable.logo)
-                                                .show();
+                                            forgetBtn.setEnabled(true);
+                                            forgetBtn.setText("Reset Password");
+                                            dialog.dismiss();
+                                            new AlertDialog.Builder(ForgetPassword.this)
+                                                    .setTitle("Error!")
+                                                    .setMessage(task.getException().getLocalizedMessage())
+                                                    .setIcon(R.drawable.logo)
+                                                    .show();
+                                        }
                                     }
-                                }
-                            });
+                                });
+                    }
                 }
             }
         });

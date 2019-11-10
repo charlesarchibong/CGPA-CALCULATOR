@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2019 , Zealnetworks Technologies. All rights reserved. DO NOT ALTER OR REMOVE
+  ~ COPYRIGHT NOTICES OR THIS FILE HEADER. You are not meant to edit or modify this source code unless you are
+  ~ authorized to do so.  Please contact me at contact@zealtech.com.ng or visit www.zealtech.com.ng if you need
+  ~ additional information or have any questions.
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_color"
+    tools:context="com.zealtech.learning.activity.DashboardHome">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <!--        main item layout-->
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="10dp"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/selectYearSpinner"
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="9dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded"
+                    android:foreground="@drawable/custom_ripple"
+                    android:padding="10dp"
+                    android:prompt="@string/spinner_select_year"
+                    android:textAlignment="center"
+                    android:textColor="@color/edit_profile" />
+
+                <Spinner
+                    android:id="@+id/selectSemesterSpinner"
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="9dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded"
+                    android:foreground="@drawable/custom_ripple"
+                    android:padding="10dp"
+                    android:prompt="@string/spinner_select_semester"
+                    android:textAlignment="center"
+                    android:textColor="@color/edit_profile" />
+            </LinearLayout>
+            <!--            Layout containing the two main button that will appear on dafault-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/registerCourseBtn"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="9dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounder_fill"
+                    android:drawableLeft="@drawable/ic_add_icon"
+                    android:foreground="@drawable/custom_ripple"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="Register Course"
+                    android:textAlignment="center"
+                    android:textColor="@color/white_color" />
+
+                <TextView
+                    android:id="@+id/viewCoursesBtn"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounder_fill"
+                    android:drawableLeft="@drawable/ic_remove_red_eye_blue_400_24dp"
+                    android:foreground="@drawable/custom_ripple"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="View Courses"
+                    android:textAlignment="center"
+                    android:textColor="@color/white_color" />
+            </LinearLayout>
+
+            <!--            Course Registration Module-->
+
+            <EditText
+                android:id="@+id/courseTitleEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/rounded_text_field"
+                android:hint="Enter Course Title"
+                android:inputType="text"
+                android:padding="10dp"
+                android:textColor="#0B0B0C"
+                android:textColorHint="#0B0B0C"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/courseCodeEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/rounded_text_field"
+                android:hint="Enter Course Code"
+                android:inputType="text"
+                android:padding="10dp"
+                android:textColor="#0B0B0C"
+                android:textColorHint="#0B0B0C"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/creditUnitEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/rounded_text_field"
+                android:hint="Enter Grade Unit (Number)"
+                android:inputType="number"
+                android:padding="10dp"
+                android:textColor="#0B0B0C"
+                android:textColorHint="#0B0B0C"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/saveCourseBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp"
+                android:layout_weight="1"
+                android:background="@drawable/rounder_fill"
+                android:drawableLeft="@drawable/ic_save_icon"
+                android:drawablePadding="-10dp"
+                android:foreground="@drawable/custom_ripple"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Save Course"
+                android:textAlignment="center"
+                android:textColor="@color/white_color" />
+            <!--Course Registration Modula ends here-->
+            <!--            Table containing the list of course registered or just added-->
+            <TableLayout
+                android:id="@+id/courseTable"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="5dp"
+                android:gravity="center"
+                android:padding="10dp"
+                android:stretchColumns="5">
+
+                <TableRow>
+
+                    <customfonts.MyTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Course Title"
+                        android:textColor="#0B0B0C"
+                        android:textSize="15sp" />
+
+                    <customfonts.MyTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="#0B0B0C"
+                        android:text="Credit Unit"
+                        android:textSize="15sp" />
+                </TableRow>
+            </TableLayout>
+
+            <TableLayout
+                android:id="@+id/creditUnitTable"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:gravity="center"
+                android:padding="10dp"
+                android:stretchColumns="5">
+
+                <TableRow>
+
+                    <customfonts.MyTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Total Credit Unit"
+                        android:textColor="#0B0B0C"
+                        android:textSize="15sp" />
+
+                    <customfonts.MyTextView
+                        android:id="@+id/crditUniiTableText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="0"
+                        android:textColor="#0B0B0C"
+                        android:textSize="15sp" />
+                </TableRow>
+            </TableLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="10dp"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/editCourseSpinner"
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="9dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded"
+                    android:foreground="@drawable/custom_ripple"
+                    android:padding="10dp"
+                    android:prompt="@string/spinner_select_year"
+                    android:textAlignment="center"
+                    android:textColor="@color/edit_profile" />
+
+                <Spinner
+                    android:id="@+id/deleteCourseSpinner"
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="9dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded"
+                    android:foreground="@drawable/custom_ripple"
+                    android:padding="10dp"
+                    android:prompt="@string/spinner_select_semester"
+                    android:textAlignment="center"
+                    android:textColor="@color/edit_profile" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

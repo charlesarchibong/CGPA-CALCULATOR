@@ -20,7 +20,10 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.zealtech.learning.dao.UserDAO;
+import com.zealtech.learning.model.User;
 import com.zealtech.learning.util.AppUtil;
+import com.zealtech.learning.util.Constants;
 
 public class SignupActivity extends AppCompatActivity
 {
@@ -28,20 +31,22 @@ public class SignupActivity extends AppCompatActivity
     private FirebaseAuth firebaseAuth;
     private EditText fname, mail, school, department, level, password;
     private TextView sinUp;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         setContentView(R.layout.activity_signup);
         firebaseAuth = FirebaseAuth.getInstance();
-
-        if(firebaseAuth.getCurrentUser() != null)
+        if (firebaseAuth.getCurrentUser() != null)
         {
             startActivity(new Intent(this, DashboardHome.class));
             finish();
         }
         sback = findViewById(R.id.sback);
-        sback.setOnClickListener(new View.OnClickListener() {
+        sback.setOnClickListener(new View.OnClickListener()
+        {
             @Override
             public void onClick(View v)
             {
@@ -62,10 +67,17 @@ public class SignupActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-               signUpUser();
+                signUpUser();
             }
         });
     }
+
+    @Override
+    protected void onStart()
+    {
+        super.onStart();
+    }
+
     public void signUpUser()
     {
         boolean error = false;
@@ -80,7 +92,7 @@ public class SignupActivity extends AppCompatActivity
             Toast.makeText(SignupActivity.this, "Full Name can not be empty", Toast.LENGTH_LONG)
                     .show();
             error = true;
-        }else if (TextUtils.isEmpty(email))
+        } else if (TextUtils.isEmpty(email))
         {
             Toast.makeText(SignupActivity.this, "Email can not be empty", Toast.LENGTH_LONG)
                     .show();
@@ -107,40 +119,58 @@ public class SignupActivity extends AppCompatActivity
             error = true;
         }
 
-        if(!error)
+        if (!error)
         {
-            final AlertDialog progressbar = AppUtil.getAlertView(this);
-            progressbar.show();
-            sinUp.setEnabled(false);
-            sinUp.setText("Loading....");
-            firebaseAuth.createUserWithEmailAndPassword(email, passWord)
-                    .addOnCompleteListener(SignupActivity.this, new OnCompleteListener<AuthResult>()
-                    {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task)
+            if (!AppUtil.isConnected(getApplicationContext()))
+            {
+                Toast.makeText(this, "Please Connected to the internet", Toast.LENGTH_LONG).show();
+            } else
+            {
+                final AlertDialog progressbar = AppUtil.getAlertView(this);
+                progressbar.show();
+                sinUp.setEnabled(false);
+                sinUp.setText("Loading....");
+                firebaseAuth.createUserWithEmailAndPassword(email, passWord)
+                        .addOnCompleteListener(SignupActivity.this, new OnCompleteListener<AuthResult>()
                         {
-                            if (task.isSuccessful())
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task)
                             {
-                                progressbar.dismiss();
-                                sinUp.setText("Success!");
-                                //UserDAO userDAO = Constants.userDatabase.getUserDAO();
-                                //userDAO.insert(user);
-                                //User.currentAppUser = userDAO.getUserByEmail(user.getEmail());
-                                Toast.makeText(SignupActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(getApplicationContext(), DashboardHome.class));
-                                finish();
-                                overridePendingTransition(R.anim.enter, R.anim.exit);
+                                if (task.isSuccessful())
+                                {
+                                    progressbar.dismiss();
+                                    sinUp.setText("Success!");
+                                    Toast.makeText(SignupActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
+                                    User user = new User();
+                                    user.setDepartment(dept);
+                                    user.setEmail(email);
+                                    user.setFullName(fullName);
+                                    user.setSchool(schooName);
+                                    user.setSynchronize("false");
+                                    user.setLevel(levelEdu);
+                                    user.setUid(firebaseAuth.getCurrentUser().getUid());
+                                    UserDAO userDAO = Constants.userDatabase.getUserDAO();
+                                    userDAO.insertUser(user);
+                                    User.currentAppUser = user;
+                                    startActivity(new Intent(getApplicationContext(), DashboardHome.class));
+                                    finish();
+                                    overridePendingTransition(R.anim.enter, R.anim.exit);
+                                } else
+                                {
+                                    progressbar.dismiss();
+                                    sinUp.setText("Sign Up");
+                                    sinUp.setEnabled(true);
+                                    Toast.makeText(SignupActivity.this, task.getException().getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                                }
                             }
-                            else
-                            {
-                                progressbar.dismiss();
-                                sinUp.setText("Sign Up");
-                                sinUp.setEnabled(true);
-                                Toast.makeText(SignupActivity.this, task.getException().getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
+                        });
+            }
         }
+    }
+
+    public static void userSignUp()
+    {
+
     }
 
 

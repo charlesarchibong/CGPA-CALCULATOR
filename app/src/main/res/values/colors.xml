@@ -9,4 +9,8 @@
     <color name="colorSlide_3">#8BC34A</color>
     <color name="active_dot">#fffafa</color>
     <color name="inactive_dot">#82878b</color>
+    <color name="title_color">#000</color>
+    <color name="edit_profile">#2196F3</color>
+    <color name="bottom_black_bgcolor">#90000000</color>
+    <color name="black_color">#0B0B0C</color>
 </resources>

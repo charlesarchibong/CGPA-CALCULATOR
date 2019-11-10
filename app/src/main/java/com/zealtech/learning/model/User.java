@@ -7,14 +7,46 @@
 
 package com.zealtech.learning.model;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity(tableName = "users")
 public class User
 {
+    @PrimaryKey(autoGenerate = true)
+    private int sn;
     private String uid;
     private String fullName;
     private String school;
     private String department;
     private String level;
     private String email;
+    @ColumnInfo(name = "synchronize")
+    private String synchronize;
+
+    public static final String synchronize_true = "true";
+    public static final String synchronize_false = "false";
+    public static User currentAppUser;
+    public int getSn()
+    {
+        return sn;
+    }
+
+    public void setSn(int sn)
+    {
+        this.sn = sn;
+    }
+
+    public String getSynchronize()
+    {
+        return synchronize;
+    }
+
+    public void setSynchronize(String synchronize)
+    {
+        this.synchronize = synchronize;
+    }
 
     public String getUid()
     {

@@ -15,4 +15,24 @@
     <string name="title_activity_dashboard_home">Home</string>
     <string name="facebook_app_id">603347740200946</string>
     <string name="sign_up">Signing up... Please wait!</string>
+    <string name="title_activity_connection_test">ConnectionTest</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="spinner_select_year">Select Year</string>
+    <string name="spinner_select_semester">Select Semester</string>
+    <string-array name="years">
+        <item>Select Year</item>
+        <item>100</item>
+        <item>200</item>
+        <item>300</item>
+        <item>400</item>
+        <item>500</item>
+    </string-array>
+    <string-array name="semesters">
+        <item>Select Semester</item>
+        <item>First Semester</item>
+        <item>Second Semester</item>
+    </string-array>
+    <string name="title_activity_edit_course">EditCourseActivity</string>
 </resources>

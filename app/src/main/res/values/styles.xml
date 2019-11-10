@@ -9,6 +9,7 @@
         <item name="android:windowContentTransitions">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
+
     <style name="AppThemeWitActionBar" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
@@ -21,6 +22,7 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+
     <style name="EdittestStyle">
         <!--<item name="android:colorAccent">#ADCCE2</item>-->
         <!--<item name="android:colorControlNormal">#ADCCE2</item>-->

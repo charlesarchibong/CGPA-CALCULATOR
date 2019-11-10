@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2019 , Zealnetworks Technologies. All rights reserved. DO NOT ALTER OR REMOVE
+  ~ COPYRIGHT NOTICES OR THIS FILE HEADER. You are not meant to edit or modify this source code unless you are
+  ~ authorized to do so.  Please contact me at contact@zealtech.com.ng or visit www.zealtech.com.ng if you need
+  ~ additional information or have any questions.
+  -->
+
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="left"
+    android:textSize="15sp"
+    android:padding="10dp"
+    android:textColor="@color/edit_profile"/>

@@ -13,8 +13,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.ViewPager;
 
-import com.zealtech.learning.util.PagerAdapter;
 import com.example.kamran.calculator.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.zealtech.learning.util.PagerAdapter;
 import com.zealtech.learning.util.PreferanceManager;
 
 public class OnBoarddingScreens extends AppCompatActivity
@@ -25,12 +26,14 @@ public class OnBoarddingScreens extends AppCompatActivity
     private LinearLayout linearLayout;
     private ImageView [] dots;
     private Button nextBtn, backBtn;
+    private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        firebaseAuth = FirebaseAuth.getInstance();
         if(new PreferanceManager(this).checkPreference())
             loadHome();
         setContentView(R.layout.activity_welcome);
